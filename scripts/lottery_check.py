@@ -153,7 +153,7 @@ def send_email(subject, content):
     msg['To'] = recipient_email
     msg['Subject'] = subject
 
-    msg.attach(MIMEText(content, 'plain'))
+    msg.attach(MIMEText(content, 'html'))
 
     try:
         # 使用QQ邮箱的SMTP服务器
@@ -186,22 +186,28 @@ def main():
         result = check_winning(lottery_type, recommended_numbers, winning_numbers)
         
         subject = f"今日{lottery_type}开奖结果"
-        content = f"""
-        您好！
-
-        今日{lottery_type}开奖结果：
-        {' '.join(winning_numbers)}
-
-        您的推荐号码：
-        {recommended_numbers}
-
-        号码对比：
-        {format_number_comparison(lottery_type, recommended_numbers, winning_numbers)}
-
-        {result}
-
-        祝您中奖！
-        """
+        content = f"""<html>
+          <head><style>body {{ font-family: Arial, sans-serif; }} .section {{ margin-bottom: 20px; }} .title {{ color: #2c3e50; font-weight: bold; }} .numbers {{ font-family: monospace; background: #f8f9fa; padding: 10px; border-radius: 4px; }}</style></head>
+          <body>
+            <div class="section">
+              <p class="title">您好！</p>
+              <p class="title">今日{lottery_type}开奖结果：</p>
+              <div class="numbers">{' '.join(winning_numbers)}</div>
+            </div>
+            <div class="section">
+              <p class="title">您的推荐号码：</p>
+              <div class="numbers">{recommended_numbers}</div>
+            </div>
+            <div class="section">
+              <p class="title">号码对比：</p>
+              <div class="numbers">{format_number_comparison(lottery_type, recommended_numbers, winning_numbers)}</div>
+            </div>
+            <div class="section">
+              <p class="title">{result}</p>
+            </div>
+            <p>祝您中奖！</p>
+          </body>
+        </html>"""
         print(f"\n今日{lottery_type}开奖结果：")
         print(' '.join(winning_numbers))
         print(f"\n{result}")
@@ -271,4 +277,4 @@ def format_number_comparison(lottery_type, recommended_numbers, winning_numbers)
         """
 
 if __name__ == "__main__":
-    main() 
+    main()
