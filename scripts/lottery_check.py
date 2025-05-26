@@ -98,17 +98,23 @@ def check_winning(lottery_type, recommended_numbers, winning_numbers):
         
         # 判断中奖等级
         if front_matches == 5 and back_matches == 2:
-            return "恭喜您中了一等奖！"
+            return "🎉恭喜您中了一等奖！成功实现财富自由！！！🎉"
         elif front_matches == 5 and back_matches == 1:
-            return "恭喜您中了二等奖！"
+            return "🎉恭喜您中了二等奖！！！！！！！！！！！！🎉"
         elif front_matches == 5 and back_matches == 0:
-            return "恭喜您中了三等奖！"
+            return "🎉恭喜您中了三等奖！奖金为10000元~"
         elif front_matches == 4 and back_matches == 2:
-            return "恭喜您中了四等奖！"
-        elif (front_matches == 4 and back_matches == 1) or (front_matches == 3 and back_matches == 2):
-            return "恭喜您中了五等奖！"
-        elif (front_matches == 4 and back_matches == 0) or (front_matches == 3 and back_matches == 1) or (front_matches == 2 and back_matches == 2):
-            return "恭喜您中了六等奖！"
+            return "🎉恭喜您中了四等奖！奖金为3000元~"
+        elif front_matches == 4 and back_matches == 1:
+            return "🎉恭喜您中了五等奖！奖金为300元~"
+        elif front_matches == 3 and back_matches == 2:
+            return "🎉恭喜您中了六等奖！奖金为200元~"
+        elif front_matches == 4 and back_matches == 0:
+            return "🎉恭喜您中了七等奖！奖金为100元~"
+        elif (front_matches == 3 and back_matches == 1) or (front_matches == 2 and back_matches == 2):
+            return "🎉恭喜您中了八等奖！奖金为15元~"
+        elif (front_matches == 3 and back_matches == 0) or (front_matches == 1 and back_matches == 2) or (front_matches == 2 and back_matches == 1) or (front_matches == 0 and back_matches == 2):
+            return "🎉恭喜您中了九等奖！奖金为5元~"
         else:
             return "很遗憾，您没有中奖。"
     else:
@@ -128,17 +134,17 @@ def check_winning(lottery_type, recommended_numbers, winning_numbers):
         
         # 判断中奖等级
         if red_matches == 6 and blue_match:
-            return "恭喜您中了一等奖！"
+            return "🎉恭喜您中了一等奖！成功实现财富自由！！！🎉"
         elif red_matches == 6 and not blue_match:
-            return "恭喜您中了二等奖！"
+            return "🎉恭喜您中了二等奖！！！！！！！！！！！！🎉"
         elif red_matches == 5 and blue_match:
-            return "恭喜您中了三等奖！"
+            return "🎉恭喜您中了三等奖！奖金为3000元~"
         elif (red_matches == 5 and not blue_match) or (red_matches == 4 and blue_match):
-            return "恭喜您中了四等奖！"
+            return "🎉恭喜您中了四等奖！奖金为200元~"
         elif (red_matches == 4 and not blue_match) or (red_matches == 3 and blue_match):
-            return "恭喜您中了五等奖！"
+            return "🎉恭喜您中了五等奖！奖金为10元~"
         elif red_matches == 2 and blue_match or red_matches == 1 and blue_match or red_matches == 0 and blue_match:
-            return "恭喜您中了六等奖！"
+            return "🎉恭喜您中了六等奖！奖金为5元~"
         else:
             return "很遗憾，您没有中奖。"
 
