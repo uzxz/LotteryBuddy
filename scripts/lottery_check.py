@@ -219,7 +219,11 @@ def main():
         print(f"\n{result}")
         
         # 发送邮件
-        send_email(subject, content)
+        # 仅在中奖时发送邮件
+        if "恭喜" in result:
+            send_email(subject, content)
+        else:
+            print("未中奖，本次不发送邮件通知")
     else:
         print("无法获取开奖结果")
 
